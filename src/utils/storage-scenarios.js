@@ -84,7 +84,7 @@ export const FEDERATED_ARCHITECTURE = {
     'Enterprise Search on a managed Serverless project — register inexpensive object storage as federated data sources and query archives without standing up search clusters on blob.',
   badge: 'Enterprise Search · roadmap',
   compareNote:
-    'Today: LogsDB on hosted log indices. Tomorrow: Search Serverless + federated S3/GCS/Azure for knowledge bases, exports, and compliance corpora — observability stays on your existing stack.',
+    'Teams on open-source Elastic often pay twice: sized clusters for hot Search plus frozen/archive tiers. Serverless + federation targets lower TCO — tune the calculator with your FTE and PB assumptions.',
   inputs: [
     { id: 'managed', label: 'Managed search indices', detail: 'Product docs · runbooks · support articles', rate: 'Sub-second UX' },
     { id: 'connectors', label: 'Content connectors', detail: 'SharePoint · web crawl · API sync', rate: 'Incremental ingest' },
