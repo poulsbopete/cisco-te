@@ -1,4 +1,4 @@
-# Elastic Observability · Storage & Capacity Demo
+# Elastic Cloud · Storage & Search Demo
 
 Public Vercel workshop site for **LogsDB**, **best_compression**, **ILM / frozen tiers**, and the **Elastic Cloud Serverless + federated data sources** roadmap. The UI is vendor-neutral (no customer logos or names).
 

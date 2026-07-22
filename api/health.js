@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   }
 
   const config = getBackendConfig();
-  const observability = await probeCluster();
+  const backend = await probeCluster();
 
   if (!config.ok) {
     return res.status(503).json({
@@ -22,25 +22,25 @@ export default async function handler(req, res) {
       connected: false,
       error: config.error,
       hint: 'Set ES_URL and ES_API_KEY in Vercel project settings for live health',
-      observability,
+      backend,
     });
   }
 
-  if (!observability.connected) {
+  if (!backend.connected) {
     return res.status(502).json({
       ok: false,
       connected: false,
-      error: observability.error,
-      observability,
+      error: backend.error,
+      backend,
     });
   }
 
   return res.status(200).json({
     ok: true,
     connected: true,
-    cluster: observability.cluster,
-    kibanaUrl: observability.kibanaUrl,
-    esUrl: observability.esUrl,
-    observability,
+    cluster: backend.cluster,
+    kibanaUrl: backend.kibanaUrl,
+    esUrl: backend.esUrl,
+    backend,
   });
 }

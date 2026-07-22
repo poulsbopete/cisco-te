@@ -23,7 +23,7 @@ const MODULES = [
     id: 'federated',
     label: 'Search + federation',
     icon: Search,
-    focus: 'Enterprise Search Serverless · federated S3/GCS/Azure — not observability or security',
+    focus: 'Enterprise Search Serverless · federated S3/GCS/Azure · blob archives',
     future: true,
   },
 ];
@@ -59,8 +59,8 @@ export default function App() {
                   <Sparkles className="w-4 h-4 text-white" />
                 </div>
                 <div className="hidden sm:block">
-                  <h1 className="text-sm font-bold text-elastic-dark leading-tight">Elastic Observability</h1>
-                  <p className="text-[10px] text-elastic-gray leading-tight">Storage & capacity workshop demo</p>
+                  <h1 className="text-sm font-bold text-elastic-dark leading-tight">Elastic Cloud</h1>
+                  <p className="text-[10px] text-elastic-gray leading-tight">Storage, LogsDB & Search federation demo</p>
                 </div>
               </div>
               <div className="hidden md:block h-6 w-px bg-gray-200" />
@@ -146,7 +146,7 @@ export default function App() {
         {activeMeta && (
           <p className="text-xs text-elastic-gray mb-4">
             Focus: <strong>{activeMeta.focus}</strong>
-            {live ? ' · live Elastic Cloud Serverless' : ' · illustrative sizing (configure ES_URL in Vercel env for live health)'}
+            {live ? ' · live Elastic Cloud backend' : ' · illustrative sizing (configure ES_URL in Vercel env for live health)'}
           </p>
         )}
         <ActiveComponent />
@@ -154,7 +154,7 @@ export default function App() {
 
       <footer className="border-t border-gray-200 bg-white mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-elastic-gray">
-          <p>Elastic Observability · Storage & capacity demo · Public workshop site</p>
+          <p>Elastic Cloud · Storage & Search demo · Public workshop site</p>
           <div className="flex items-center gap-3">
             <span className="flex items-center gap-1">
               <span className="w-2 h-2 rounded-full bg-elastic-teal" />

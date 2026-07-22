@@ -236,7 +236,7 @@ export function FederatedFutureDashboard() {
     <div className="space-y-6">
       <ModuleHeader
         title="Serverless Search & federated blob sources"
-        subtitle="Enterprise Search on Elastic Cloud Serverless — federate S3, GCS, and Azure prefixes for cheap long-retention corpora. Not a replacement for your observability or security platforms."
+        subtitle="Enterprise Search on Elastic Cloud Serverless — federate S3, GCS, and Azure prefixes for cheap long-retention corpora and knowledge bases."
         badges={[{ label: 'Search · future', tone: 'future' }]}
       />
 
@@ -269,7 +269,7 @@ export function FederatedFutureDashboard() {
             </li>
             <li className="flex gap-2">
               <span className="text-success font-bold">+</span>
-              Complements existing telemetry and security tooling — this tab is archive & knowledge search only.
+              Search-only scope — archive and knowledge corpora; your existing monitoring stack stays elsewhere.
             </li>
           </ul>
         </div>
