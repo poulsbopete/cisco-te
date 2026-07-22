@@ -154,7 +154,7 @@ export default function App() {
 
       <footer className="border-t border-gray-200 bg-white mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-elastic-gray">
-          <p>Elastic Cloud · Storage & Search demo · Public workshop site</p>
+          <p>Elastic Cloud · Storage & Search demo</p>
           <div className="flex items-center gap-3">
             <span className="flex items-center gap-1">
               <span className="w-2 h-2 rounded-full bg-elastic-teal" />

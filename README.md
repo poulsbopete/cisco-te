@@ -1,6 +1,6 @@
 # Elastic Cloud · Storage & Search Demo
 
-Public Vercel workshop site for **LogsDB**, **best_compression**, **ILM / frozen tiers**, and the **Elastic Cloud Serverless + federated data sources** roadmap. The UI is vendor-neutral (no customer logos or names).
+Vercel-hosted demo for **LogsDB**, **best_compression**, **ILM / frozen tiers**, and **Elastic Cloud Serverless Search** with federated blob data sources. The UI is vendor-neutral (no customer logos or names).
 
 Built in the same shape as the PayPal observability platform demo (**reference:** `/Users/psimkins/opt/paypal_2026_o11y_platform`): **Vite + React**, optional **Vercel serverless** `/api/health` against Elastic Cloud.
 
@@ -40,7 +40,7 @@ Open [http://localhost:5173](http://localhost:5173). API requests proxy to `serv
    - `ES_API_KEY`
    - `KIBANA_URL`
 
-Without credentials the site runs fully on illustrative workshop data.
+Without credentials the site uses illustrative sample data.
 
 ## Internal context
 
@@ -48,4 +48,4 @@ Repo supports commercial observability capacity conversations (hosted cluster st
 
 ## License
 
-Demo content for Elastic field workshops. Elasticsearch and Kibana are trademarks of Elasticsearch B.V.
+Demo content for Elastic customer conversations. Elasticsearch and Kibana are trademarks of Elasticsearch B.V.

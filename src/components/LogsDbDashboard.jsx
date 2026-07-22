@@ -55,7 +55,7 @@ export function LogsDbDashboard() {
         <StatCard label="Code changes" value="0" unit="required" trend="Template + ILM policy updates" />
         <StatCard label="Trade-off" value="+CPU" unit="indexing" trend="Index sorting for logsdb mode" />
         <StatCard
-          label="Workshop savings"
+          label="Estimated savings"
           value={formatUsdMillions(saved / 1_000_000)}
           highlight
           trend={`At ${formatPb(pbStored)} stored (illustrative)`}
@@ -66,7 +66,7 @@ export function LogsDbDashboard() {
         <div className="p-4 rounded-xl border border-gray-200 bg-white">
           <label htmlFor="pb-slider" className="text-sm font-semibold text-elastic-dark flex items-center gap-2">
             <Database className="w-4 h-4 text-elastic-teal" />
-            Stored log volume (workshop)
+            Stored log volume (scenario)
           </label>
           <input
             id="pb-slider"

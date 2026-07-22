@@ -43,7 +43,7 @@ export function SearchTcoComparison() {
     <section className="rounded-xl border border-emerald-200/80 bg-gradient-to-br from-emerald-50/30 via-white to-gray-50 overflow-hidden">
       <div className="p-4 border-b border-emerald-100 flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="text-[10px] uppercase tracking-wide font-bold text-emerald-800">TCO workshop</p>
+          <p className="text-[10px] uppercase tracking-wide font-bold text-emerald-800">Illustrative TCO</p>
           <h3 className="text-sm font-semibold text-elastic-dark mt-0.5">
             Open-source Elastic vs Serverless Search + federated blob
           </h3>
