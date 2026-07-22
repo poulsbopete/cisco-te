@@ -10,6 +10,7 @@ import {
   Upload,
 } from 'lucide-react';
 import { FEDERATED_ARCHITECTURE, FEDERATED_SEARCH_USE_CASES } from '../utils/storage-scenarios';
+import { RetrievalComparisonPanel } from './RetrievalComparisonPanel';
 import { SearchTcoComparison } from './SearchTcoComparison';
 import { ModuleHeader } from './shared/ModuleHeader';
 
@@ -242,6 +243,8 @@ export function FederatedFutureDashboard() {
       <FederatedArchitectureDiagram />
 
       <SearchTcoComparison />
+
+      <RetrievalComparisonPanel />
 
       <div className="grid sm:grid-cols-2 gap-3">
         {FEDERATED_SEARCH_USE_CASES.map((item) => (

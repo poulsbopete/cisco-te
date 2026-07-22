@@ -127,7 +127,7 @@ export const FEDERATED_ARCHITECTURE = {
   experience: [
     'Enterprise Search UI',
     'ES|QL · Search applications',
-    'Semantic · ELSER',
+    'Semantic · Jina-class rerank',
     'Connectors & APIs',
   ],
 };

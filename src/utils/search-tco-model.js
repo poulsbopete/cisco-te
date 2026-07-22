@@ -31,8 +31,8 @@ export const OSS_VS_SERVERLESS_ADVANTAGES = [
     body: 'OSS bills scatter across EC2, EBS, cross-AZ traffic, backups, and over-provisioned headroom. Serverless Search + federation maps spend to managed hot corpus plus low blob $/GB — easier FinOps for the commercial line.',
   },
   {
-    title: 'Faster path to semantic & connectors',
-    body: 'ELSER, Search applications, and connector framework on Serverless avoid running inference and ingest tiers yourself on the same cluster that already struggles with storage growth.',
+    title: 'Semantic stack without self-hosted inference',
+    body: 'Serverless Search plus Jina-class embed/rerank APIs avoids GPU nodes on your OSS cluster — dense retrieval is overtaking sparse ELSER for natural-language KB while you federate cold corpora from blob.',
   },
 ];
 
