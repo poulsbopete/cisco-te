@@ -2,7 +2,17 @@
 
 Public Vercel workshop site for **LogsDB**, **best_compression**, **ILM / frozen tiers**, and the **Elastic Cloud Serverless + federated data sources** roadmap. The UI is vendor-neutral (no customer logos or names).
 
-Built in the same shape as the internal PayPal observability platform demo: **Vite + React**, optional **Vercel serverless** `/api/health` against Elastic Cloud.
+Built in the same shape as the PayPal observability platform demo (**reference:** `/Users/psimkins/opt/paypal_2026_o11y_platform`): **Vite + React**, optional **Vercel serverless** `/api/health` against Elastic Cloud.
+
+### vs PayPal demo (`paypal_2026_o11y_platform`)
+
+| PayPal module | This repo |
+|---------------|-----------|
+| Observability RFP · $/PB · Streams · `NextGenServerlessDiagram` | **LogsDB today** + **Capacity & ILM** (storage-first workshop) |
+| Business Telemetry · live OTel · A2A · workflows | Not included (neutral public site) |
+| Enterprise Search · ELSER chat | Not included |
+| Elastic Security · SIEM | Not included |
+| Multi-backend `api/demo/*` · ES\|QL proxy | Minimal `api/health` only (extend by copying `api/` from PayPal) |
 
 ## Modules
 
