@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Activity, Cloud, HardDrive, Menu, Sparkles, X } from 'lucide-react';
+import { Activity, HardDrive, Menu, Search, Sparkles, X } from 'lucide-react';
 import { LogsDbDashboard } from './components/LogsDbDashboard';
 import { CapacityPlanningDashboard } from './components/CapacityPlanningDashboard';
 import { FederatedFutureDashboard } from './components/FederatedFutureDashboard';
@@ -21,9 +21,9 @@ const MODULES = [
   },
   {
     id: 'federated',
-    label: 'Serverless future',
-    icon: Cloud,
-    focus: 'Federated data sources · blob economics · simplified administration',
+    label: 'Search + federation',
+    icon: Search,
+    focus: 'Enterprise Search Serverless · federated S3/GCS/Azure — not observability or security',
     future: true,
   },
 ];
@@ -160,7 +160,7 @@ export default function App() {
               <span className="w-2 h-2 rounded-full bg-elastic-teal" />
               Elastic Stack
             </span>
-            <span>LogsDB · ILM · Serverless federation</span>
+            <span>LogsDB · ILM · Search federation</span>
           </div>
         </div>
       </footer>

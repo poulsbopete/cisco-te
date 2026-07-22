@@ -96,9 +96,9 @@ export function CapacityPlanningDashboard() {
           </p>
         </div>
         <div className="p-4 rounded-xl border border-violet-200/70 bg-violet-50/40">
-          <h3 className="text-sm font-semibold text-elastic-dark">3 · Plan for Serverless</h3>
+          <h3 className="text-sm font-semibold text-elastic-dark">3 · Search on blob (future)</h3>
           <p className="text-xs text-elastic-gray mt-2 leading-relaxed">
-            Federated data sources shift long-retention economics to blob storage with Elastic-managed query federation.
+            Enterprise Search Serverless + federated data sources for KB and archive corpora in object storage — separate from telemetry pipelines.
           </p>
         </div>
       </div>

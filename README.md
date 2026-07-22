@@ -20,7 +20,7 @@ Built in the same shape as the PayPal observability platform demo (**reference:*
 |-----|---------|
 | **LogsDB today** | Index template snippet, ~30% storage savings model, CPU trade-offs |
 | **Capacity & ILM** | Auto-scale at ~85% disk, shard limits, tier strategy |
-| **Serverless future** | Federated data sources architecture diagram |
+| **Search + federation** | Enterprise Search Serverless · federated blob corpora (no o11y/security story) |
 
 ## Local development
 

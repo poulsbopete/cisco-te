@@ -1,21 +1,26 @@
 import {
-  Activity,
   ArrowRight,
   Cloud,
   Database,
+  FileText,
   GitBranch,
   Layers,
-  Radio,
+  Search,
   Sparkles,
   Upload,
 } from 'lucide-react';
-import { FEDERATED_ARCHITECTURE } from '../utils/storage-scenarios';
+import { FEDERATED_ARCHITECTURE, FEDERATED_SEARCH_USE_CASES } from '../utils/storage-scenarios';
 import { ModuleHeader } from './shared/ModuleHeader';
 
 const INPUT_ICONS = {
-  otel: Radio,
-  bulk: Upload,
+  managed: FileText,
+  connectors: Upload,
   archive: Database,
+};
+
+const DESTINATION_ICONS = {
+  unified: Search,
+  admin: Cloud,
 };
 
 function StatusPill({ status }) {
@@ -139,7 +144,7 @@ export function FederatedArchitectureDiagram() {
           <FlowLine className="self-center pt-6" />
 
           <div className="flex flex-col gap-2 w-[200px] shrink-0 pt-5">
-            <p className="text-[10px] uppercase tracking-wide font-semibold text-elastic-gray mb-1">Retention</p>
+            <p className="text-[10px] uppercase tracking-wide font-semibold text-elastic-gray mb-1">Search tiers</p>
             {arch.storage.map((tier) => (
               <NodeCard key={tier.id} className="border-elastic-teal/30">
                 <div className="flex items-center gap-2">
@@ -159,10 +164,12 @@ export function FederatedArchitectureDiagram() {
 
           <div className="flex flex-col gap-2 w-[188px] shrink-0 pt-5">
             <p className="text-[10px] uppercase tracking-wide font-semibold text-elastic-gray mb-1">Outcomes</p>
-            {arch.destinations.map((dest) => (
+            {arch.destinations.map((dest) => {
+              const DestIcon = DESTINATION_ICONS[dest.id] || Search;
+              return (
               <NodeCard key={dest.id}>
                 <div className="flex items-center gap-2">
-                  <Activity className="w-3.5 h-3.5 text-indigo-600" />
+                  <DestIcon className="w-3.5 h-3.5 text-indigo-600" />
                   <span className="text-xs font-semibold text-elastic-dark">{dest.label}</span>
                 </div>
                 <p className="text-[10px] text-elastic-gray mt-1">{dest.detail}</p>
@@ -170,13 +177,14 @@ export function FederatedArchitectureDiagram() {
                   <StatusPill status="Good" />
                 </div>
               </NodeCard>
-            ))}
+            );
+            })}
           </div>
         </div>
 
         <NodeCard className="relative border-indigo-200 bg-indigo-50/40 mx-2 mt-4">
           <p className="text-[10px] uppercase tracking-wide font-semibold text-indigo-800 mb-2">
-            Unified experience · one Serverless project
+            Enterprise Search · one Serverless project
           </p>
           <div className="flex flex-wrap gap-2">
             {arch.experience.map((item) => (
@@ -200,7 +208,7 @@ export function FederatedArchitectureDiagram() {
             items: arch.federation.routes.map((r) => `${r.label}: ${r.share}`),
           },
           {
-            title: 'Retention',
+            title: 'Search tiers',
             items: arch.storage.map((s) => `${s.label}: ${s.detail}`),
           },
         ].map((block) => (
@@ -225,37 +233,46 @@ export function FederatedFutureDashboard() {
   return (
     <div className="space-y-6">
       <ModuleHeader
-        title="Serverless & federated data sources"
-        subtitle="Elastic administers ingest and query; inexpensive blob holds compliance-age telemetry — searchable without hot-cluster sizing."
-        badges={[{ label: 'Future path', tone: 'future' }]}
+        title="Serverless Search & federated blob sources"
+        subtitle="Enterprise Search on Elastic Cloud Serverless — federate S3, GCS, and Azure prefixes for cheap long-retention corpora. Not a replacement for your observability or security platforms."
+        badges={[{ label: 'Search · future', tone: 'future' }]}
       />
 
       <FederatedArchitectureDiagram />
 
+      <div className="grid sm:grid-cols-2 gap-3">
+        {FEDERATED_SEARCH_USE_CASES.map((item) => (
+          <div key={item.title} className="p-4 rounded-xl border border-gray-200 bg-white">
+            <h3 className="text-sm font-semibold text-elastic-dark">{item.title}</h3>
+            <p className="text-xs text-elastic-gray mt-2 leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+
       <div className="grid md:grid-cols-2 gap-4">
         <div className="p-4 rounded-xl border border-gray-200 bg-white">
-          <h3 className="text-sm font-semibold text-elastic-dark">Compared to today&apos;s hosted cluster</h3>
+          <h3 className="text-sm font-semibold text-elastic-dark">Why Search + federation</h3>
           <ul className="mt-3 space-y-2 text-xs text-elastic-gray">
             <li className="flex gap-2">
               <span className="text-success font-bold">+</span>
-              No data-node topology meetings — project-scoped Serverless control plane.
+              Query blob archives in place — no second full copy into a sized search cluster.
             </li>
             <li className="flex gap-2">
               <span className="text-success font-bold">+</span>
-              Federated prefixes on S3/GCS/Azure — query archive where it already lives.
+              Managed Search project: semantic retrieval, connectors, and APIs without shard planning on cold data.
             </li>
             <li className="flex gap-2">
               <span className="text-success font-bold">+</span>
-              Same Kibana & ES|QL skills; optional Streams shaping in transit.
+              Complements existing telemetry and security tooling — this tab is archive & knowledge search only.
             </li>
           </ul>
         </div>
         <div className="p-4 rounded-xl border border-dashed border-violet-300 bg-violet-50/30">
           <h3 className="text-sm font-semibold text-elastic-dark">Recommended sequence</h3>
           <ol className="mt-3 space-y-2 text-xs text-elastic-gray list-decimal pl-4">
-            <li>Pilot LogsDB + best_compression on commercial indices (measurable ~30% disk win).</li>
-            <li>Validate ILM → searchable snapshot for aged tiers; document query latency SLOs.</li>
-            <li>Evaluate Serverless + federated sources for net-new workloads or DR/analytics partitions.</li>
+            <li>Pilot LogsDB + best_compression on hosted log indices (~30% disk win on today&apos;s tab).</li>
+            <li>Identify blob prefixes already used for exports, KB snapshots, or compliance bundles.</li>
+            <li>Stand up a Search Serverless project; register federated data sources and validate ES|QL + Search UI latency.</li>
           </ol>
         </div>
       </div>

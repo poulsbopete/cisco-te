@@ -79,58 +79,77 @@ export const AUTOSCALE_FACTS = [
 ];
 
 export const FEDERATED_ARCHITECTURE = {
-  title: 'Elastic Cloud Serverless · federated observability',
+  title: 'Elastic Cloud Serverless Search · federated blob corpora',
   subtitle:
-    'Keep administration on Elastic while long-retention and archive tiers live in inexpensive object storage — query in place without re-sizing hot clusters.',
-  badge: 'Roadmap · simplified ops',
+    'Enterprise Search on a managed Serverless project — register inexpensive object storage as federated data sources and query archives without standing up search clusters on blob.',
+  badge: 'Enterprise Search · roadmap',
   compareNote:
-    'Today: optimize hosted footprint with LogsDB and ILM. Tomorrow: same Kibana experience with Serverless control plane + federated data sources.',
+    'Today: LogsDB on hosted log indices. Tomorrow: Search Serverless + federated S3/GCS/Azure for knowledge bases, exports, and compliance corpora — observability stays on your existing stack.',
   inputs: [
-    { id: 'otel', label: 'OpenTelemetry', detail: 'Agents & collectors · high-cardinality logs', rate: 'Multi-TB/day class' },
-    { id: 'bulk', label: 'Elastic Agent', detail: 'Beats · Logstash · bulk pipelines', rate: '10k+ eps' },
-    { id: 'archive', label: 'Existing archives', detail: 'S3 · GCS · Azure Blob · on-prem object store', rate: 'Federated read' },
+    { id: 'managed', label: 'Managed search indices', detail: 'Product docs · runbooks · support articles', rate: 'Sub-second UX' },
+    { id: 'connectors', label: 'Content connectors', detail: 'SharePoint · web crawl · API sync', rate: 'Incremental ingest' },
+    { id: 'archive', label: 'Blob archives', detail: 'S3 · GCS · Azure Blob · historical JSON/Parquet exports', rate: 'Federated read' },
   ],
   controlPlane: {
-    label: 'Serverless control plane',
-    detail: 'Elastic-operated · no data-node sizing · project-scoped RBAC',
+    label: 'Serverless Search project',
+    detail: 'Elastic-operated · no search cluster sizing · project API keys & RBAC',
     status: 'Healthy',
   },
   federation: {
     label: 'Federated data sources',
-    detail: 'Register object-store prefixes · schema-on-read · unified ES|QL',
+    detail: 'Map bucket prefixes · schema-on-read · same ES|QL & Search UI',
     routes: [
-      { id: 'hot', label: 'Managed hot tier', share: 'Recent telemetry · alerts · SLOs', accent: 'emerald' },
-      { id: 'fed', label: 'Federated buckets', share: 'Compliance & research · blob $/GB', accent: 'emerald' },
-      { id: 'ilm', label: 'ILM handoff', share: 'Roll from hot → object without re-ingest', accent: 'gray' },
+      { id: 'hot', label: 'Hot search corpus', share: 'Fresh KB · in-app & portal search', accent: 'emerald' },
+      { id: 'fed', label: 'Federated buckets', share: 'Cold archives · cents/GB-month blob', accent: 'emerald' },
+      { id: 'lifecycle', label: 'Tier to blob', share: 'Export or snapshot → federate (no re-copy)', accent: 'gray' },
     ],
   },
   storage: [
     {
       id: 'active',
-      label: 'Active search tier',
-      detail: 'Sub-second triage · dashboards · anomaly detection',
-      metrics: 'Hot queries · ≤1s class',
+      label: 'Managed search tier',
+      detail: 'Lexical + semantic · ELSER · autocomplete',
+      metrics: 'Interactive search · ms–s class',
       status: 'Good',
     },
     {
       id: 'object',
-      label: 'Object storage tier',
-      detail: 'Searchable snapshots · federated prefixes · frozen class',
-      metrics: 'Aged data · cents/GB-month',
+      label: 'Federated object tier',
+      detail: 'Query blob in place · long-retention corpora',
+      metrics: 'Archive search · blob economics',
       status: 'Good',
     },
   ],
   destinations: [
-    { id: 'logs', label: 'Logs · metrics · traces', detail: 'Single ES|QL surface across managed + federated data' },
-    { id: 'ops', label: 'Operations', detail: 'ILM · index templates · project API keys — no cluster topology meetings' },
+    { id: 'unified', label: 'Unified search', detail: 'One query across managed indices and federated prefixes' },
+    { id: 'admin', label: 'Easy administration', detail: 'Register data sources in UI — no shard math on cold storage' },
   ],
   experience: [
-    'Kibana Discover & Lens',
-    'ES|QL across tiers',
-    'APM & SLOs',
-    'Alerting & cases',
+    'Enterprise Search UI',
+    'ES|QL · Search applications',
+    'Semantic · ELSER',
+    'Connectors & APIs',
   ],
 };
+
+export const FEDERATED_SEARCH_USE_CASES = [
+  {
+    title: 'Knowledge & support',
+    body: 'Search product documentation, release notes, and support macros — hot tier for agents, federated blob for years of archived tickets and PDFs.',
+  },
+  {
+    title: 'Compliance & audit',
+    body: 'Federate immutable exports in object storage for e-discovery and policy review without reloading petabytes into RAM-backed indices.',
+  },
+  {
+    title: 'Data platform handoff',
+    body: 'Analytics pipelines land curated JSON/Parquet in S3; Search Serverless federates those prefixes for self-serve lookup and ES|QL exploration.',
+  },
+  {
+    title: 'Hybrid retention',
+    body: 'Keep recent corpus on managed Search for speed; tier aged content to blob and federate — same search bar, lower storage spend.',
+  },
+];
 
 export function formatPb(value) {
   return `${value.toFixed(1)} PB`;
